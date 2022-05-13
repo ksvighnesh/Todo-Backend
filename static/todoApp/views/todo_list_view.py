@@ -22,7 +22,8 @@ class TodoListView(Resource):
                 return jsonify(data), 200
         except Exception as e:
             logger.error(f"Error: {e}")
-            return {"message": "something went wrong"}, 500
+            response_string = f"Something went wrong {e}"
+            return {"message": response_string}, 500
 
     def post(self):
         try:
